@@ -13,10 +13,10 @@ public class Exercise14_01 extends Application {
         // Create a grid pane to hold the images
         GridPane pane = new GridPane();
         pane.setPadding(new Insets(5, 5, 5, 5));
-        ImageView usa = new ImageView(new Image("us.jpg"));
-        ImageView china = new ImageView(new Image("china.jpg"));
-        ImageView uk = new ImageView(new Image("uk.jpg"));
-        ImageView canada = new ImageView(new Image("ca.gif"));
+        ImageView usa = new ImageView(new Image("image/us.jpg"));
+        ImageView china = new ImageView(new Image("image/china.jpg"));
+        ImageView uk = new ImageView(new Image("image/uk.jpg"));
+        ImageView canada = new ImageView(new Image("image/ca.gif"));
 
         pane.setHgap(5);
         pane.setVgap(5);
