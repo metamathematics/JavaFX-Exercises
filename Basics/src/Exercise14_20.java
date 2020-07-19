@@ -21,9 +21,10 @@ import java.util.Random;
 		double endX = r.nextDouble() * 400;
 		double endY = r.nextDouble() * 300;
 
-		double distance = d(startX, startY, endX, endY);
+		double distance = Math.hypot((startX - endX), (startY - endY));
 		while (distance < 1.0) {
 			endX = r.nextDouble() * 400;
+			distance = Math.hypot((startX - endX), (startY - endY));
 		}
 		
 		drawArrowLine(startX, startY, endX, endY, pane);
@@ -42,19 +43,6 @@ import java.util.Random;
 
 	public static void drawArrowLine(double startX, double startY, double endX, double endY, Pane pane) {
 		Line line = new Line(startX, startY, endX, endY);
-		/*Line leftArrow;
-		Line rightArrow;
-		if (startX < endX) {
-			if (startY < endY) {
-				leftArrow = new Line(endX - 10, endY - 10, endX, endY);
-				rightArrow = new Line(endX - 10, endY + 10, endX, endY);
-			}
-		}*/
-		pane.getChildren().addAll(line);
-	}
-	
-
-	public static double d(double x1, double y1, double x2, double y2) {
-		return Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2));
+		pane.getChildren().add(line);
 	}
  }
