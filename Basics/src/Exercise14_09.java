@@ -1,55 +1,38 @@
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.layout.GridPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.ArcType;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Arc;
 import javafx.stage.Stage;
-import java.util.Random;
-import java.util.ArrayList;
+
 
 public class Exercise14_09 extends Application {
   @Override
-  public void start(Stage primaryStage) {
-    // Create pane to hold images
+  public void start (Stage primaryStage) {
     GridPane pane = new GridPane();
-    pane.setPadding(new Insets(5, 5, 5, 5));
+    pane.setPadding(new Insets(5,5,5,5));
 
-    // Array of card image names
-    ArrayList<Integer> cardNames = new ArrayList<>(54);
-    for (int i = 1; i <= 54; i++) {
-      cardNames.add(i);
-    }
+    Circle circle = new Circle(100, 100, 70);
+    circle.setFill(Color.BLACK);
+    Arc arc = new Arc(112, 200, 45, 70, 20, 35);
+    arc.setFill(Color.WHITE);
+    arc.setType(ArcType.ROUND);
 
-    Random r = new Random();
+    pane.add(circle, 0, 0);
+    pane.add(arc, 0, 0);
 
-    // Array of ImageView objects
-    ArrayList<ImageView> cards = new ArrayList<>(54);
-    for (int i = 0; i < 54; i++) {
-      int arrayIndex = r.nextInt(cardNames.size());
-      int name = cardNames.remove(arrayIndex);
-      cards.add(new ImageView(new Image("card/" + name + ".png")));
-    }
-
-    // Add images to pane
-    pane.setHgap(5);
-    pane.setVgap(5);
-    int index = 0;
-    for (int i = 0; i < 9; i++) {
-      for (int j = 0; j < 6; j++) {
-        pane.add(cards.get(index++), i, j);
-      }
-    }
-
-    // Create scene and add to stage
-    Scene scene = new Scene(pane);
-    primaryStage.setTitle("Shuffled Cards");
+    Scene scene = new Scene(pane, 300, 200);
+    primaryStage.setTitle("Fans");
     primaryStage.setScene(scene);
     primaryStage.show();
-
   }
 
-  public static void main(String[] args) {
+  public static void main (String[] args) {
     Application.launch(args);
   }
 }
