@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.util.Random;
 import java.util.ArrayList;
 
-/** Lets the user click the Refresh botton to display four cards */
+/** Lets the user click the Refresh botton to display four cards. */
 public class Exercise15_01 extends Application {
 	private Deal hand = new Deal();
 
@@ -42,17 +42,19 @@ public class Exercise15_01 extends Application {
 		primaryStage.show();
 	}
 
-	
+	/**	Class to display four random cards.  */
 	public class Deal extends HBox {
 		private ImageView[] cards = new ImageView[4];
-
+		
+		/** Default Constructor.  */
 		public Deal() {
 			setAlignment(Pos.CENTER);
 			setSpacing(3);
 			setPadding(new Insets(10, 10, 5, 10));
 			initializeCards();
 		}
-
+		
+		/**	Creates four ImageView card objects and adds them to the HBox.  */
 		private void initializeCards() {
 			int[] numbers = randomNumbers();
 			for (int i = 0; i < 4; i++) {
@@ -60,7 +62,8 @@ public class Exercise15_01 extends Application {
 				getChildren().add(cards[i]);
 			}
 		}
-
+		
+		/** Updates the card images to new random ones.  */
 		public void updateCards() {
 			int[] numbers = randomNumbers();
 			for (int i = 0; i < 4; i++) {
@@ -68,6 +71,9 @@ public class Exercise15_01 extends Application {
 			}
 		}
 
+		/**	Creates an int array of four random ints 1-52.
+				@return The array
+		  */
 		private int[] randomNumbers() {
 			ArrayList<Integer> cardNames = new ArrayList<>(52);
 			for (int num = 1; num <= 52; num++) {
@@ -83,6 +89,7 @@ public class Exercise15_01 extends Application {
 		}
 	}
 
+	/** The main method.  */
 	public static void main(String[] args) {
 		Application.launch(args);
 	}
