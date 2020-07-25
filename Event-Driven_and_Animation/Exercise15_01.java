@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public class Exercise15_01 extends Application {
 	private Deal hand = new Deal();
 
+	/** Override the start method from the the Application class.  */
 	@Override
 	public void start(Stage primaryStage) {
 		// Place Refresh button into a stackpane
